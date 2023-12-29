@@ -180,11 +180,11 @@ def user_stats(df):
 def show_data(df):
     # Give user a possibility to see the raw data on request
     first_row = 0
-    add_rows = 5
+    rows_diff = 5
     while True:
         answer = input('Do you want to see 5 lines of raw data? Enter yes or no:').lower().strip()
         if answer == 'yes':
-            last_row = first_row + add_rows
+            last_row = first_row + rows_diff
             if last_row <= len(df):
                 print(df[first_row:last_row])
                 first_row = last_row
