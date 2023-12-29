@@ -114,7 +114,6 @@ def station_stats(df):
     print('\n The most common End Station:\n',Common_End_Station)
     # TO DO: display most frequent combination of start station and end station trip
     Most_frequent_combination_Start_End_Stations = df.groupby(['Start Station','End Station']).size().idxmax()
-    Value = df.groupby(['Start Station','End Station']).size().max()
     print('\n The most frequent combination of start station and end station trip: \n',Most_frequent_combination_Start_End_Stations)
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -180,14 +179,15 @@ def user_stats(df):
 def show_data(df):
     # Give user a possibility to see the raw data on request
     first_row = 0
-    add_rows = 5
+    rows_diff = 5
     while True:
         answer = input('Do you want to see 5 lines of raw data? Enter yes or no:').lower().strip()
         if answer == 'yes':
-            last_row = first_row + add_rows
+            last_row = first_row + rows_diff
             if last_row <= len(df):
-                print(df[first_row:last_row])
-                first_row = last_row
+                with pd.set_option('display.max_columns',200):
+                    print(df[first_row:last_row])
+                    first_row = last_row
             else: 
                 print('\nNo more raw data to display.\n')
                 break
