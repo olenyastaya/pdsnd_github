@@ -185,8 +185,9 @@ def show_data(df):
         if answer == 'yes':
             last_row = first_row + rows_diff
             if last_row <= len(df):
-                print(df[first_row:last_row])
-                first_row = last_row
+                with pd.set_option('display.max_columns',200):
+                    print(df[first_row:last_row])
+                    first_row = last_row
             else: 
                 print('\nNo more raw data to display.\n')
                 break
