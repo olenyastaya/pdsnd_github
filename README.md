@@ -16,3 +16,6 @@ In this project, data provided by Motivate, a bike share system provider for man
 
 ### Credits
 We give credits to [Udacity](https://github.com/udacity/pdsnd_github) for helping to organize the project. 
+
+### Known Bugs
+No bugs have been revealed so far. Please feel free to contribute. 
